@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gustavo Bueno - Filósofo del Materialismo Filosófico</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+            header::before {
+                content: '';
+                position: absolute;
+                top: -50%;
+                left: -50%;
+                width: 200%;
+                height: 200%;
+                background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+                animation: rotate 20s linear infinite;
+            }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .dates {
+            font-size: 1.1em;
+            margin-top: 15px;
+            opacity: 0.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        nav {
+            background: #34495e;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+            nav ul {
+                list-style: none;
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 30px;
+            }
+
+            nav a {
+                color: white;
+                text-decoration: none;
+                padding: 12px 25px;
+                border-radius: 25px;
+                transition: all 0.3s ease;
+                font-weight: 500;
+            }
+
+                nav a:hover {
+                    background: #3498db;
+                    transform: translateY(-2px);
+                    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+                }
+
+        .content {
+            padding: 40px;
+        }
+
+        section {
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+            section:nth-child(even) {
+                animation-delay: 0.2s;
+            }
+
+            section:nth-child(odd) {
+                animation-delay: 0.4s;
+            }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            position: relative;
+        }
+
+            h2::after {
+                content: '';
+                position: absolute;
+                bottom: -3px;
+                left: 0;
+                width: 50px;
+                height: 3px;
+                background: #e74c3c;
+            }
+
+        h3 {
+            font-size: 1.8em;
+            color: #34495e;
+            margin: 30px 0 15px 0;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            text-align: justify;
+        }
+
+        .quote {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-left: 5px solid #3498db;
+            padding: 25px;
+            margin: 30px 0;
+            font-style: italic;
+            border-radius: 0 15px 15px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+            .quote::before {
+                content: '"';
+                font-size: 4em;
+                color: #3498db;
+                position: absolute;
+                top: -10px;
+                left: 15px;
+                opacity: 0.3;
+            }
+
+        .quote-text {
+            font-size: 1.2em;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .quote-source {
+            text-align: right;
+            font-weight: bold;
+            color: #34495e;
+            font-size: 0.9em;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #ecf0f1;
+        }
+
+            .card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            }
+
+        .obras-list {
+            list-style: none;
+        }
+
+            .obras-list li {
+                background: #f8f9fa;
+                margin: 15px 0;
+                padding: 20px;
+                border-radius: 10px;
+                border-left: 4px solid #3498db;
+                transition: all 0.3s ease;
+            }
+
+                .obras-list li:hover {
+                    background: #e3f2fd;
+                    transform: translateX(10px);
+                }
+
+        .obra-title {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+
+        .obra-year {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .enlaces {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .enlace {
+            background: #3498db;
+            color: white;
+            padding: 8px 15px;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+
+            .enlace:hover {
+                background: #2980b9;
+                transform: scale(1.05);
+            }
+
+        .amazon {
+            background: #ff9500;
+        }
+
+            .amazon:hover {
+                background: #e68400;
+            }
+
+        .archive {
+            background: #28a745;
+        }
+
+            .archive:hover {
+                background: #218838;
+            }
+
+        .wikipedia {
+            background: #000;
+        }
+
+            .wikipedia:hover {
+                background: #333;
+            }
+
+        .academia {
+            background: #0073e6;
+        }
+
+            .academia:hover {
+                background: #005bb5;
+            }
+
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+            .timeline::before {
+                content: '';
+                position: absolute;
+                left: 15px;
+                top: 0;
+                bottom: 0;
+                width: 2px;
+                background: #3498db;
+            }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+            .timeline-item::before {
+                content: '';
+                position: absolute;
+                left: -37px;
+                top: 25px;
+                width: 12px;
+                height: 12px;
+                background: #3498db;
+                border-radius: 50%;
+                border: 3px solid white;
+            }
+
+        .year {
+            font-weight: bold;
+            color: #e74c3c;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .fuentes-list {
+            list-style: none;
+        }
+
+            .fuentes-list li {
+                margin: 15px 0;
+                padding: 15px;
+                background: #f8f9fa;
+                border-radius: 8px;
+                border-left: 3px solid #3498db;
+            }
+
+            .fuentes-list a {
+                color: #3498db;
+                text-decoration: none;
+                font-weight: 500;
+            }
+
+                .fuentes-list a:hover {
+                    text-decoration: underline;
+                }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+        }
+
+        .floating-nav {
+            position: fixed;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(52, 73, 94, 0.9);
+            padding: 20px 10px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+            .floating-nav a {
+                display: block;
+                color: white;
+                text-decoration: none;
+                padding: 10px;
+                margin: 5px 0;
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                text-align: center;
+                line-height: 20px;
+                font-size: 0.8em;
+                transition: all 0.3s ease;
+            }
+
+                .floating-nav a:hover {
+                    background: #3498db;
+                    transform: scale(1.1);
+                }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 15px;
+            }
+
+            header {
+                padding: 40px 20px;
+            }
+
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            nav a {
+                display: block;
+                text-align: center;
+            }
+
+            .floating-nav {
+                display: none;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-nav">
+        <a href="#biografia" title="Biografía">Bio</a>
+        <a href="#pensamiento" title="Pensamiento">💭</a>
+        <a href="#obras" title="Obras">📚</a>
+        <a href="#contexto" title="Contexto">🏛️</a>
+        <a href="#influencias" title="Influencias">🌐</a>
+        <a href="#cronologia" title="Cronología">📅</a>
+        <a href="#fuentes" title="Fuentes">🔗</a>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>Gustavo Bueno Martínez</h1>
+            <div class="subtitle">Filósofo del Materialismo Filosófico</div>
+            <div class="dates">1924 - 2016</div>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="#biografia">Biografía</a></li>
+                <li><a href="#pensamiento">Pensamiento</a></li>
+                <li><a href="#obras">Obras Principales</a></li>
+                <li><a href="#contexto">Contexto Histórico</a></li>
+                <li><a href="#influencias">Influencias</a></li>
+                <li><a href="#cronologia">Cronología</a></li>
+                <li><a href="#fuentes">Fuentes</a></li>
+            </ul>
+        </nav>
+
+        <div class="content">
+            <section id="biografia">
+                <h2>Biografía</h2>
+                <p>Gustavo Bueno Martínez (1924-2016) fue uno de los filósofos españoles más influyentes del siglo XX. Nacido en Santo Domingo de la Calzada (La Rioja), desarrolló una extensa obra filosófica que culminó en la creación del sistema conocido como <strong>Materialismo Filosófico</strong>.</p>
+
+                <p>Tras estudiar Filosofía en la Universidad de Barcelona y obtener su doctorado en Madrid, se trasladó a Oviedo en 1960, donde desarrolló la mayor parte de su carrera académica. Fundó la revista <em>El Basilisco</em> en 1978, que se convirtió en el principal órgano de difusión del materialismo filosófico.</p>
+
+                <div class="quote">
+                    <div class="quote-text">La filosofía no es una ciencia, pero tampoco es literatura. La filosofía es filosofía, y tiene sus propios métodos y sus propios criterios de verdad.</div>
+                    <div class="quote-source">— Gustavo Bueno</div>
+                </div>
+
+                <p>Su obra abarca múltiples áreas: ontología, gnoseología, filosofía de la ciencia, filosofía política, filosofía de la religión y filosofía de la cultura. Fue un pensador sistemático que construyó un edificio filosófico coherente y original, alejándose tanto del idealismo como del materialismo vulgar.</p>
+            </section>
+
+            <section id="pensamiento">
+                <h2>Pensamiento Filosófico</h2>
+
+                <div class="grid">
+                    <div class="card">
+                        <h3>Materialismo Filosófico</h3>
+                        <p>Sistema ontológico que postula la realidad de la materia ontológico-general, organizada en tres géneros: materia física, materia psíquica y materia lógica.</p>
+                        <div class="quote">
+                            <div class="quote-text">No hay Ideas puras, sino Ideas envueltas siempre en las cosas materiales.</div>
+                            <div class="quote-source">— El Animal Divino</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>Teoría del Cierre Categorial</h3>
+                        <p>Teoría de la ciencia que explica cómo se constituyen las ciencias mediante operaciones de cierre de sus campos categoriales específicos.</p>
+                        <div class="quote">
+                            <div class="quote-text">Las ciencias se constituyen por cierre categorial, no por apertura hacia lo infinito.</div>
+                            <div class="quote-source">— Teoría del Cierre Categorial</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>Filosofía Política</h3>
+                        <p>Desarrolló una teoría del Estado y la nación desde perspectivas materialistas, criticando tanto el nacionalismo romántico como el cosmopolitismo abstracto.</p>
+                        <div class="quote">
+                            <div class="quote-text">España no es una nación, sino una sociedad política plurinacional.</div>
+                            <div class="quote-source">— España frente a Europa</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>Crítica de la Religión</h3>
+                        <p>Analizó los fenómenos religiosos desde una perspectiva materialista, distinguiendo entre religiones primarias, secundarias y terciarias.</p>
+                        <div class="quote">
+                            <div class="quote-text">Los dioses no son invenciones humanas, sino que son animales reales transfigurados.</div>
+                            <div class="quote-source">— El Animal Divino</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="obras">
+                <h2>Obras Principales</h2>
+                <ul class="obras-list">
+                    <li>
+                        <div class="obra-title">El Papel de la Filosofía en el Conjunto del Saber</div>
+                        <div class="obra-year">1970</div>
+                        <p>Obra fundamental donde establece las bases de su sistema filosófico y la relación entre filosofía y ciencias.</p>
+                        <div class="enlaces">
+                            <a href="https://www.amazon.es/papel-filosof%C3%ADa-conjunto-saber-construido/dp/8478135804" class="enlace amazon">Amazon</a>
+                            <a href="https://archive.org/search.php?query=gustavo%20bueno%20papel%20filosofia" class="enlace archive">Archive.org</a>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="obra-title">Ensayos Materialistas</div>
+                        <div class="obra-year">1972</div>
+                        <p>Colección de ensayos donde desarrolla aspectos fundamentales del materialismo filosófico.</p>
+                        <div class="enlaces">
+                            <a href="https://www.amazon.es/Ensayos-materialistas-Gustavo-Bueno/dp/8430907138" class="enlace amazon">Amazon</a>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="obra-title">La Metafísica Presocrática</div>
+                        <div class="obra-year">1974</div>
+                        <p>Análisis crítico de los filósofos presocráticos desde la perspectiva del materialismo filosófico.</p>
+                        <div class="enlaces">
+                            <a href="https://www.amazon.es/metaf%C3%ADsica-presocr%C3%A1tica-Gustavo-Bueno/dp/8430911103" class="enlace amazon">Amazon</a>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="obra-title">Teoría del Cierre Categorial</div>
+                        <div class="obra-year">1992-1993, 5 volúmenes</div>
+                        <p>Su obra magna sobre la filosofía de la ciencia, donde desarrolla su teoría del cierre categorial.</p>
+                        <div class="enlaces">
+                            <a href="https://www.amazon.es/s?k=gustavo+bueno+teoria+cierre+categorial" class="enlace amazon">Amazon</a>
+                            <a href="http://www.filosofia.org/filomat/df360.htm" class="enlace">Filosofía.org</a>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="obra-title">El Animal Divino</div>
+                        <div class="obra-year">1985</div>
+                        <p>Ensayo sobre el origen de las religiones desde una perspectiva materialista.</p>
+                        <div class="enlaces">
+                            <a href="https://www.amazon.es/animal-divino-Ensayo-antropolog%C3%ADa/dp/8478540474" class="enlace amazon">Amazon</a>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="obra-title">España frente a Europa</div>
+                        <div class="obra-year">1999</div>
+                        <p>Análisis de la identidad española y europea desde perspectivas filosófico-políticas.</p>
+                        <div class="enlaces">
+                            <a href="https://www.amazon.es/Espa%C3%B1a-frente-Europa-Gustavo-Bueno/dp/8484320545" class="enlace amazon">Amazon</a>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="obra-title">El Mito de la Cultura</div>
+                        <div class="obra-year">1996</div>
+                        <p>Crítica del concepto antropológico de cultura y propuesta de una nueva taxonomía.</p>
+                        <div class="enlaces">
+                            <a href="https://www.amazon.es/mito-cultura-Ensayo-filosof%C3%ADa-antropol%C3%B3gica/dp/8478130209" class="enlace amazon">Amazon</a>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="obra-title">El Mito de la Izquierda</div>
+                        <div class="obra-year">2003</div>
+                        <p>Análisis crítico de las ideologías de izquierda desde el materialismo filosófico.</p>
+                        <div class="enlaces">
+                            <a href="https://www.amazon.es/mito-izquierda-Gustavo-Bueno/dp/8440696302" class="enlace amazon">Amazon</a>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+
+            <section id="contexto">
+                <h2>Contexto Histórico y Filosófico</h2>
+
+                <p>Gustavo Bueno desarrolló su filosofía en el contexto de la España del siglo XX, marcada por la Guerra Civil, la dictadura franquista y la posterior transición democrática. Su obra representa una respuesta original a los grandes sistemas filosóficos europeos del siglo XX.</p>
+
+                <div class="grid">
+                    <div class="card">
+                        <h3>Contexto Español</h3>
+                        <p>La filosofía española del siglo XX estuvo marcada por figuras como Ortega y Gasset, Zubiri y García Bacca. Bueno representa una nueva generación que busca crear un sistema filosófico autóctono y riguroso.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Contexto Internacional</h3>
+                        <p>Su obra dialoga críticamente con el marxismo, el estructuralismo, la filosofía analítica y el postmodernismo, ofreciendo alternativas desde el materialismo filosófico.</p>
+                    </div>
+                </div>
+
+                <div class="quote">
+                    <div class="quote-text">Nuestra filosofía no pretende ser una filosofía española, sino una filosofía hecha desde España, lo que es muy diferente.</div>
+                    <div class="quote-source">— Gustavo Bueno</div>
+                </div>
+            </section>
+
+            <section id="influencias">
+                <h2>Influencias Recibidas y Ejercidas</h2>
+
+                <h3>Influencias Recibidas</h3>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Filosofía Clásica</h3>
+                        <p><strong>Platón y Aristóteles:</strong> Especialmente la teoría de las Ideas platónica, reinterpretada materialmente, y la lógica aristotélica.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Filosofía Moderna</h3>
+                        <p><strong>Spinoza:</strong> Su monismo materialista y geometría ética influyen en la ontología de Bueno.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Filosofía Alemana</h3>
+                        <p><strong>Kant, Hegel, Marx:</strong> La dialéctica hegeliana y el materialismo marxista, aunque críticamente reelaborados.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Filosofía Contemporánea</h3>
+                        <p><strong>Bachelard, Canguilhem:</strong> La epistemología francesa influye en su teoría de la ciencia.</p>
+                    </div>
+                </div>
+
+                <h3>Influencias Ejercidas</h3>
+                <p>El materialismo filosófico ha influido en una generación de filósofos españoles y latinoamericanos. La Escuela de Oviedo, con discípulos como Pelayo García Sierra, Iñigo Ongay, y muchos otros, continúa desarrollando y aplicando sus ideas en diversos campos.</p>
+
+                <div class="quote">
+                    <div class="quote-text">No se trata de interpretar el mundo, sino de transformarlo; pero tampoco se trata de transformarlo sin interpretarlo.</div>
+                    <div class="quote-source">— Gustavo Bueno</div>
+                </div>
+            </section>
+
+            <section id="cronologia">
+                <h2>Cronología Vital e Intelectual</h2>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="year">1924</div>
+                        <p>Nace en Santo Domingo de la Calzada (La Rioja) el 1 de septiembre.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="year">1948</div>
+                        <p>Se licencia en Filosofía por la Universidad de Barcelona.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="year">1954</div>
+                        <p>Obtiene el doctorado en Filosofía por la Universidad de Madrid con la tesis "La metafísica presocrática".</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="year">1960</div>
+                        <p>Se traslada a Oviedo como catedrático de Fundamentos de Filosofía e Historia de los Sistemas Filosóficos.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="year">1970</div>
+                        <p>Publica "El papel de la filosofía en el conjunto del saber", obra fundamental de su sistema.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="year">1978</div>
+                        <p>Funda la revista "El Basilisco", principal órgano del materialismo filosófico.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="year">1992-1993</div>
+                        <p>Publica "Teoría del cierre categorial" en cinco volúmenes, su obra magna sobre filosofía de la ciencia.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="year">1999</div>
+                        <p>Se jubila de la Universidad de Oviedo, pero continúa su actividad intelectual.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="year">2016</div>
+                        <p>Muere en Niembro (Asturias) el 7 de agosto, a los 91 años.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="fuentes">
+                <h2>Fuentes y Enlaces Externos</h2>
+
+                <h3>Recursos Principales</h3>
+                <ul class="fuentes-list">
+                    <li>
+                        <a href="http://www.filosofia.org/">Filosofía en español</a> -
+                        Portal principal del materialismo filosófico con textos completos de Gustavo Bueno
+                    </li>
+                    <li>
+                        <a href="https://www.fgbueno.es/">Fundación Gustavo Bueno</a> -
+                        Sitio oficial de la fundación que preserva y difunde su obra
+                    </li>
+                    <li>
+                        <a href="https://es.wikipedia.org/wiki/Gustavo_Bueno">Wikipedia - Gustavo Bueno</a> -
+                        Artículo enciclopédico sobre el filósofo
+                    </li>
+                    <li>
+                        <a href="https://www.academia.edu/search?utf8=%E2%9C%93&q=gustavo+bueno">Academia.edu - Gustavo Bueno</a> -
+                        Artículos académicos sobre su obra y pensamiento
+                    </li>
+                </ul>
+
+                <h3>Textos Online</h3>
+                <ul class="fuentes-list">
+                    <li>
+                        <a href="http://www.filosofia.org/aut/gb/">Textos de Gustavo Bueno</a> -
+                        Biblioteca digital con obras completas
+                    </li>
+                    <li>
+                        <a href="http://www.fgbueno.es/aud/">Audio y Vídeo</a> -
+                        Conferencias y entrevistas en formato multimedia
+                    </li>
+                </ul>
+
+                <h3>Estudios Críticos</h3>
+                <ul class="fuentes-list">
+                    <li>
+                        <a href=" https: //dialnet.unirioja.es/servlet/autor?codigo =13796
