@@ -1,1 +1,1 @@
-Fix: Todos los enlaces externos ahora se abren en una nueva pestaña.
+Fix: Actualizado el enlace a 'La Metafísica Presocrática'
